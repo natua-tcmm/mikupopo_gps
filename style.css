@@ -46,9 +46,9 @@ h1, p { margin: 0; font-weight: 400; white-space: nowrap; }
 
 h1 {
   position: absolute;
-  top: 10%;
-  left: 5.5%;
-  font-size: 2.65cqw;
+  top: 5%;
+  left: 5%;
+  font-size: 4.5cqw;
   line-height: 1.5;
 }
 
@@ -59,18 +59,18 @@ h1 {
   transform: translate(-50%, -50%);
   width: 92%;
   text-align: center;
-  font-size: 7cqw;
+  font-size: 8.5cqw;
   line-height: 1.65;
   letter-spacing: 0.01em;
 }
 
 .municipality {
   position: absolute;
-  top: 80%;
+  bottom: 5%;
   left: 5%;
   width: 90%;
   text-align: center;
-  font-size: 3cqw;
+  font-size: 4.5cqw;
   line-height: 1.5;
 }
 
