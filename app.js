@@ -1,5 +1,25 @@
 import { formatDMS } from './geo.js';
 
+const stage = document.querySelector('.stage');
+
+// Older Android Chrome uses a vh height that can include the browser toolbar.
+// Use the visible window height and ordinary px/em units instead of cqw/dvh.
+function resizeStage() {
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+  const width = Math.min(viewportWidth, viewportHeight * 16 / 9);
+  document.body.style.height = `${viewportHeight}px`;
+  stage.style.width = `${width}px`;
+  stage.style.height = `${width * 9 / 16}px`;
+  stage.style.fontSize = `${width / 100}px`;
+}
+
+resizeStage();
+window.addEventListener('resize', resizeStage);
+window.addEventListener('orientationchange', resizeStage);
+document.addEventListener('fullscreenchange', resizeStage);
+if (window.visualViewport) window.visualViewport.addEventListener('resize', resizeStage);
+
 const latitudeLine = document.querySelector('#latitude');
 const longitudeLine = document.querySelector('#longitude');
 const municipalityLine = document.querySelector('#municipality');
@@ -89,7 +109,7 @@ async function toggleFullscreen() {
     // Some mobile browsers only support full screen through installed PWAs.
   }
 }
-document.querySelector('.stage').addEventListener('dblclick', toggleFullscreen);
+stage.addEventListener('dblclick', toggleFullscreen);
 document.addEventListener('keydown', event => {
   if (event.key.toLowerCase() === 'f' && !event.ctrlKey && !event.metaKey && !event.altKey && !event.repeat) {
     event.preventDefault();

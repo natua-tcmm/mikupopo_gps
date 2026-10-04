@@ -1,5 +1,5 @@
 // Bump this version whenever any app file or offline asset changes.
-const CACHE = 'mikupopo-gps-v1';
+const CACHE = 'mikupopo-gps-v2';
 const ASSETS = [
   './', './index.html', './style.css', './app.js', './geo.js', './location-worker.js',
   './manifest.webmanifest', './assets/fonts/MochiyPopOne-Regular.woff2',
