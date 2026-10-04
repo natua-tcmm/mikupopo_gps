@@ -1,5 +1,5 @@
 // Bump this version whenever any app file or offline asset changes.
-const CACHE = 'mikupopo-gps-v2';
+const CACHE = 'mikupopo-gps-v3';
 const ASSETS = [
   './', './index.html', './style.css', './app.js', './geo.js', './location-worker.js',
   './manifest.webmanifest', './assets/fonts/MochiyPopOne-Regular.woff2',
@@ -11,7 +11,7 @@ const ASSETS = [
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);
-    await cache.addAll(ASSETS);
+    await cache.addAll(ASSETS.map(url => new Request(url, { cache: 'reload' })));
     await self.skipWaiting();
   })());
 });
