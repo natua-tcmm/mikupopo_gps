@@ -1,0 +1,11 @@
+{
+  "name": "mikupopo-gps",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline GPS display for Miku",
+  "scripts": {
+    "start": "python3 -m http.server 5173 --bind 127.0.0.1",
+    "test": "node --test tests/*.test.js"
+  }
+}
